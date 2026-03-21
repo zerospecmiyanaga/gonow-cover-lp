@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
 <title>【先行受注】スマートオイルセンサー専用カバー | GoNOW</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
@@ -20,14 +21,38 @@
 html{scroll-behavior:smooth;}
 body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;}
 
+/* ── 準備中バナー ── */
+.wip-banner{
+  position:fixed;top:0;left:0;right:0;z-index:9999;
+  background:linear-gradient(90deg,#ff4d00,#ff6b35,#ff4d00);
+  background-size:200% 100%;
+  animation:wip-slide 3s linear infinite;
+  color:white;
+  padding:14px 24px;
+  text-align:center;
+  font-family:'Noto Sans JP',sans-serif;
+  font-weight:700;
+  font-size:1rem;
+  letter-spacing:.08em;
+  box-shadow:0 4px 20px rgba(255,77,0,.5);
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  flex-wrap:wrap;
+}
+@keyframes wip-slide{0%{background-position:0% 0;}100%{background-position:200% 0;}}
+.wip-banner .wip-icon{font-size:1.3rem;animation:wip-shake .6s ease-in-out infinite alternate;}
+@keyframes wip-shake{from{transform:rotate(-8deg);}to{transform:rotate(8deg);}}
+.wip-badge{background:white;color:#ff4d00;font-size:.8rem;font-weight:800;padding:3px 12px;border-radius:99px;letter-spacing:.1em;}
+.wip-note{font-size:.82rem;font-weight:400;opacity:.92;}
+
 /* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-bottom:1.5px solid var(--border);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;box-shadow:0 2px 16px rgba(0,191,255,.1);}
-.nav-logo{font-family:'Montserrat',sans-serif;font-size:1.4rem;font-weight:900;color:var(--blue);letter-spacing:.06em;}
+nav{position:fixed;top:52px;left:0;right:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-bottom:1.5px solid var(--border);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;box-shadow:0 2px 16px rgba(0,191,255,.1);}
+.nav-logo{display:flex;align-items:center;}
+.nav-logo img{height:36px;width:auto;display:block;}
 .nav-cta{background:var(--blue);color:white;font-weight:700;font-size:.85rem;padding:10px 22px;border-radius:8px;text-decoration:none;letter-spacing:.05em;transition:all .2s;border:none;cursor:pointer;font-family:'Noto Sans JP',sans-serif;box-shadow:0 4px 14px rgba(0,191,255,.3);}
 .nav-cta:hover{background:var(--blue-dark);transform:translateY(-1px);}
 
 /* ── HERO ── */
-.hero{min-height:100vh;background:linear-gradient(145deg,#fff 0%,#eaf8ff 45%,#c8effc 100%);position:relative;overflow:hidden;display:flex;align-items:center;padding:80px 32px 60px;}
+.hero{min-height:100vh;background:linear-gradient(145deg,#fff 0%,#eaf8ff 45%,#c8effc 100%);position:relative;overflow:hidden;display:flex;align-items:center;padding:140px 32px 60px;}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,191,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,191,255,.07) 1px,transparent 1px);background-size:52px 52px;}
 .hero-blob{position:absolute;right:-120px;top:-120px;width:700px;height:700px;background:radial-gradient(circle,rgba(0,191,255,.14) 0%,transparent 65%);pointer-events:none;}
 .hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
@@ -255,7 +280,8 @@ section{padding:80px 32px;}
 
 /* ── FOOTER ── */
 footer{background:var(--navy);color:rgba(255,255,255,.5);padding:48px 32px;text-align:center;}
-footer .nav-logo{font-family:'Montserrat',sans-serif;font-size:1.6rem;font-weight:900;color:var(--blue);display:block;margin-bottom:16px;}
+footer .nav-logo{display:flex;justify-content:center;margin-bottom:16px;}
+footer .nav-logo img{height:44px;width:auto;display:block;}
 footer p{font-size:.8rem;line-height:1.9;}
 footer a{color:rgba(255,255,255,.5);text-decoration:none;}
 footer a:hover{color:var(--blue);}
@@ -277,9 +303,18 @@ footer a:hover{color:var(--blue);}
 </head>
 <body>
 
+<!-- 準備中バナー -->
+<div class="wip-banner">
+  <span class="wip-icon">🚧</span>
+  <span class="wip-badge">UNDER CONSTRUCTION</span>
+  <span>このページはただいま<strong>準備中</strong>です。内容・価格・仕様は変更になる場合があります。</span>
+  <span class="wip-note">※ 現在は関係者のみへの共有用です</span>
+  <span class="wip-icon">🚧</span>
+</div>
+
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">GoNOW</div>
+  <div class="nav-logo"><img src="./gonow_logo.png" alt="GoNOW"></div>
   <a href="#form" class="nav-cta">▶ 先行申込みはこちら</a>
 </nav>
 
@@ -689,7 +724,7 @@ footer a:hover{color:var(--blue);}
 
 <!-- FOOTER -->
 <footer>
-  <div class="nav-logo">GoNOW</div>
+  <div class="nav-logo"><img src="./gonow_logo.png" alt="GoNOW"></div>
   <p>ゼロスペック株式会社<br>
   本先行受注プロジェクトは社内企画です。内容は予告なく変更される場合があります。<br>
   © 2026 ZEROSPEC Inc. All rights reserved.</p>
