@@ -252,9 +252,9 @@ section{padding:80px 32px;}
 /* ── TIMELINE ── */
 .timeline-bg{background:white;}
 .timeline{margin-top:48px;position:relative;padding-left:80px;}
-.timeline::before{content:'';position:absolute;left:28px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--blue),var(--blue-light));}
+.timeline::before{content:'';position:absolute;left:51px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--blue),var(--blue-light));}
 .tl-item{margin-bottom:36px;position:relative;}
-.tl-dot{position:absolute;left:-52px;top:6px;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+.tl-dot{position:absolute;left:-52px;top:6px;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;z-index:1;}
 .tl-dot.blue{background:var(--blue);box-shadow:0 4px 14px rgba(0,191,255,.4);}
 .tl-dot.navy{background:var(--navy);}
 .tl-dot.gray{background:#b0c0cc;}
@@ -564,7 +564,7 @@ footer a:hover{color:var(--blue);}
   <div class="section-inner">
     <span class="section-label">Application Form</span>
     <h2 class="section-title">先行受注のお申込み</h2>
-    <p class="section-desc">下記フォームにご入力のうえ、送信してください。弊社担当より確認のご連絡をさしあげます。</p>
+    <p class="section-desc">下記フォームにご入力のうえ送信してください。弊社担当より確認のご連絡をさしあげます。</p>
     <div class="form-card">
       <div class="form-header">
         <h3>📋 先行受注申込みフォーム（第1期 · 30% OFF）</h3>
@@ -645,24 +645,31 @@ footer a:hover{color:var(--blue);}
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-dot blue">🚀</div>
-        <div class="tl-date">2026年3月〜4月中旬</div>
+        <div class="tl-date">2026年3月23日（月）〜 4月5日（日）</div>
         <div class="tl-title">【CFフェーズ】第1期募集</div>
-        <div class="tl-desc">30% OFF（1,750円/個）の特別価格で先行受注を受付。GoNOW利用企業様限定のクローズドオファーです。</div>
+        <div class="tl-desc">プレミア価格・30% OFF（1,750円/個）で先行受注を受付。GoNOW利用企業様限定のクローズドオファーです。</div>
         <span class="tl-tag blue">受付中 · 30% OFF</span>
       </div>
       <div class="tl-item">
-        <div class="tl-dot blue">🚀</div>
-        <div class="tl-date">2026年4月〜</div>
+        <div class="tl-dot blue">📋</div>
+        <div class="tl-date">2026年4月6日（月）〜 4月19日（日）</div>
         <div class="tl-title">【CFフェーズ】第2期募集</div>
-        <div class="tl-desc">10% OFF（2,250円/個）での受付。第1期より価格は上がります。早めのご申込みをおすすめします。</div>
-        <span class="tl-tag navy">4月〜 · 10% OFF</span>
+        <div class="tl-desc">15% OFF（2,250円/個）での受付。第1期より価格は上がります。早めのご申込みをおすすめします。</div>
+        <span class="tl-tag navy">4/6〜4/19 · 15% OFF</span>
       </div>
       <div class="tl-item">
         <div class="tl-dot navy">⚖️</div>
-        <div class="tl-date">2026年5月</div>
-        <div class="tl-title">【ジャッジフェーズ】最終集計・達成判定</div>
+        <div class="tl-date">2026年4月19日（日）</div>
+        <div class="tl-title">【ジャッジフェーズ】GO / NO-GO 判断</div>
         <div class="tl-desc">第1期・第2期合計の申込み数を確認。1,000個以上で成立。未達成の場合は全申込みをキャンセル（費用なし）。</div>
         <span class="tl-tag navy">判定フェーズ</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot navy">🏦</div>
+        <div class="tl-date">2026年4月20日（月）以降</div>
+        <div class="tl-title">【補助金フェーズ】石油協会補助金 申請受付開始</div>
+        <div class="tl-desc">補助金申請を希望されるお客様は4/20以降にお手続きをお願いします。専用カバーはGoNOWセンサー本体との同時申請が必要です。補助金募集期間は3月27日〜5月15日を想定しています。</div>
+        <span class="tl-tag blue">補助金申請 · 4/20〜</span>
       </div>
       <div class="tl-item">
         <div class="tl-dot navy">🏭</div>
