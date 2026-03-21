@@ -740,7 +740,7 @@ footer a:hover{color:var(--blue);}
 </footer>
 
 <script>
-await fetch(GAS_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body: JSON.stringify(payload) });
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbyxn-KrDdKeaZqRuOKYvSJYgG8T0Vgw5UW4BTbFKActnMMIl_gYt2sivBnGvnTazLpCOg/exec';
 const GOAL = 1000;
 
 function updateGauges(count) {
@@ -819,7 +819,7 @@ async function submitForm() {
     return;
   }
   try {
-    await fetch(GAS_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+    await fetch(GAS_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body: JSON.stringify(payload) });
     document.getElementById('form-body').style.display = 'none';
     document.getElementById('success-msg').classList.add('show');
     fetchProgress();
