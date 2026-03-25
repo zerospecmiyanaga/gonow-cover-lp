@@ -101,9 +101,9 @@ nav{position:fixed;top:52px;left:0;right:0;z-index:100;background:rgba(255,255,2
 .hero-product-stage{position:relative;display:flex;align-items:center;justify-content:center;min-height:340px;}
 .hero-product-glow{position:absolute;inset:-30px;background:radial-gradient(ellipse at center,rgba(0,191,255,.18) 0%,transparent 70%);border-radius:50%;animation:glow-pulse 4s ease-in-out infinite;}
 @keyframes glow-pulse{0%,100%{transform:scale(1);opacity:.8;}50%{transform:scale(1.08);opacity:1;}}
-.hero-product-img{position:relative;z-index:1;width:100%;max-width:420px;border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(0,191,255,.22);animation:float 6s ease-in-out infinite;}
-.hero-product-img img{width:100%;height:auto;display:block;border-radius:24px;}
+.hero-product-placeholder{position:relative;z-index:1;width:100%;max-width:420px;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(0,191,255,.05);border:2px dashed rgba(0,191,255,.25);border-radius:24px;color:rgba(0,120,170,.45);font-size:.82rem;font-weight:600;letter-spacing:.05em;animation:float 6s ease-in-out infinite;}
 @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
+.hero-product-placeholder .ph-icon{font-size:3.2rem;opacity:.4;}
 .hero-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
 .hero-tag{background:rgba(0,191,255,.1);border:1px solid rgba(0,191,255,.3);color:var(--blue-deeper);font-size:.75rem;font-weight:700;padding:5px 14px;border-radius:99px;}
 
@@ -144,8 +144,7 @@ section{padding:80px 32px;}
 .gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px;}
 .gallery-card{background:white;border:1.5px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s;}
 .gallery-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
-.g-img-wrap{display:flex;align-items:center;justify-content:center;padding:0;background:#111;min-height:280px;overflow:hidden;}
-.g-img-wrap img{width:100%;height:280px;object-fit:cover;display:block;}
+.g-img-wrap{display:flex;align-items:center;justify-content:center;padding:36px 28px;background:#111;min-height:280px;}
 .g-img-wrap.light{background:#eef7f0;}
 .g-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:rgba(255,255,255,.25);font-size:.78rem;font-weight:600;letter-spacing:.05em;text-align:center;}
 .g-img-wrap.light .g-placeholder{color:rgba(0,120,80,.25);}
@@ -262,7 +261,7 @@ section{padding:80px 32px;}
 .timeline{margin-top:48px;position:relative;padding-left:80px;}
 .timeline::before{content:'';position:absolute;left:51px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--blue),var(--blue-light));}
 .tl-item{margin-bottom:36px;position:relative;}
-.tl-dot{position:absolute;left:-52px;top:6px;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;z-index:1;}
+.tl-dot{position:absolute;left:-52px;top:6px;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
 .tl-dot.blue{background:var(--blue);box-shadow:0 4px 14px rgba(0,191,255,.4);}
 .tl-dot.navy{background:var(--navy);}
 .tl-dot.gray{background:#b0c0cc;}
@@ -306,11 +305,53 @@ footer a:hover{color:var(--blue);}
   .form-grid{grid-template-columns:1fr;}
   .form-card{padding:28px 20px;}
   .timeline{padding-left:68px;}
+  .timeline::before{left:39px;}
   .gallery-grid{grid-template-columns:1fr;}
 }
+/* ── DEBUG PANEL ── */
+#debug-panel{position:fixed;bottom:16px;right:16px;z-index:99999;background:#1a1a2e;color:#e0e0ff;border-radius:14px;padding:18px 20px;font-family:'Montserrat',monospace;font-size:.75rem;width:300px;box-shadow:0 8px 32px rgba(0,0,0,.4);border:1px solid rgba(120,120,255,.3);}
+#debug-panel h5{color:#7b8cff;font-size:.7rem;letter-spacing:.15em;margin-bottom:12px;text-transform:uppercase;}
+.dbg-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.dbg-label{color:#8a8aaa;font-size:.68rem;width:68px;flex-shrink:0;}
+.dbg-val{color:#e0e0ff;font-weight:700;}
+.dbg-badge{font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:99px;margin-left:6px;}
+.dbg-badge.phase1{background:rgba(0,191,255,.2);color:#00bfff;}
+.dbg-badge.phase2{background:rgba(0,200,100,.2);color:#00c864;}
+.dbg-badge.closed{background:rgba(255,80,80,.2);color:#ff5050;}
+.dbg-sep{height:1px;background:rgba(255,255,255,.08);margin:10px 0;}
+.dbg-select{background:#0d0d1a;color:#e0e0ff;border:1px solid rgba(120,120,255,.3);border-radius:6px;padding:4px 8px;font-size:.7rem;width:100%;}
+.dbg-btn{background:rgba(123,140,255,.15);color:#7b8cff;border:1px solid rgba(123,140,255,.3);border-radius:6px;padding:5px 10px;font-size:.7rem;cursor:pointer;font-family:inherit;width:100%;margin-top:6px;transition:background .15s;}
+.dbg-btn:hover{background:rgba(123,140,255,.3);}
+.dbg-close{position:absolute;top:10px;right:14px;cursor:pointer;color:#555577;font-size:1rem;line-height:1;}
+#debug-toggle{position:fixed;bottom:16px;right:16px;z-index:99998;background:#1a1a2e;color:#7b8cff;border:1px solid rgba(123,140,255,.3);border-radius:8px;padding:6px 12px;font-size:.7rem;font-weight:700;cursor:pointer;font-family:'Montserrat',sans-serif;letter-spacing:.1em;display:none;}
 </style>
 </head>
 <body>
+
+<!-- DEBUG PANEL（?debug=1 で表示） -->
+<div id="debug-panel" style="display:none;">
+  <div class="dbg-close" onclick="document.getElementById('debug-panel').style.display='none';document.getElementById('debug-toggle').style.display='block'">✕</div>
+  <h5>🛠 Phase Debug Panel</h5>
+  <div class="dbg-row"><span class="dbg-label">現在日時</span><span class="dbg-val" id="dbg-now">—</span></div>
+  <div class="dbg-row"><span class="dbg-label">フェーズ</span><span class="dbg-val" id="dbg-phase">—</span></div>
+  <div class="dbg-row"><span class="dbg-label">残り時間</span><span class="dbg-val" id="dbg-remain">—</span></div>
+  <div class="dbg-sep"></div>
+  <div style="color:#8a8aaa;font-size:.68rem;margin-bottom:6px;">疑似日時をセット</div>
+  <select class="dbg-select" id="dbg-preset">
+    <option value="">── プリセット選択 ──</option>
+    <option value="2026-04-05T12:00:00">第1期 中盤（4/5 12:00）</option>
+    <option value="2026-04-06T23:58:00">第1期 終了2分前（4/6 23:58）</option>
+    <option value="2026-04-06T23:59:59">第1期 終了1秒前（4/6 23:59:59）</option>
+    <option value="2026-04-07T00:00:00">第2期 開始直後（4/7 00:00）</option>
+    <option value="2026-04-15T10:00:00">第2期 中盤（4/15 10:00）</option>
+    <option value="2026-04-20T23:58:00">第2期 終了2分前（4/20 23:58）</option>
+    <option value="2026-04-20T23:59:59">第2期 終了1秒前（4/20 23:59:59）</option>
+    <option value="2026-04-21T00:00:00">受付終了後（4/21 00:00）</option>
+  </select>
+  <button class="dbg-btn" onclick="applyDebugTime()">▶ この日時で再描画</button>
+  <button class="dbg-btn" style="margin-top:4px;background:rgba(255,80,80,.1);color:#ff7070;border-color:rgba(255,80,80,.2);" onclick="clearDebugTime()">✕ 疑似日時を解除（実時間に戻す）</button>
+</div>
+<button id="debug-toggle" onclick="document.getElementById('debug-panel').style.display='block';this.style.display='none'">🛠 DEBUG</button>
 
 <!-- 準備中バナー -->
 <div class="wip-banner">
@@ -324,7 +365,7 @@ footer a:hover{color:var(--blue);}
 <!-- NAV -->
 <nav>
   <div class="nav-logo"><img src="./gonow_logo.png" alt="GoNOW"></div>
-  <a href="#form" class="nav-cta">▶ 先行申込みはこちら</a>
+  <a href="#form" class="nav-cta" onclick="trackEvent('cta_click',{button_name:'nav_cta',location:'nav'})">▶ 先行申込みはこちら</a>
 </nav>
 
 <!-- HERO -->
@@ -349,28 +390,32 @@ footer a:hover{color:var(--blue);}
       </p>
       <div class="hero-meta">
         <div class="hero-meta-item">
-          <span class="label">第1期価格</span>
-          <span class="value blue">¥1,750<small style="font-size:.55em;font-weight:600">/個（税別・送料別）</small></span>
+          <span class="label" id="hero-price-label">現在の価格</span>
+          <span class="value blue" id="hero-price-value">¥1,750<small style="font-size:.55em;font-weight:600">/個（税別・送料別）</small></span>
         </div>
         <div class="hero-meta-item">
           <span class="label">目標数量</span>
           <span class="value">1,000 個</span>
         </div>
         <div class="hero-meta-item">
-          <span class="label">第1期締切</span>
-          <span class="value">2026年4月中旬</span>
+          <span class="label" id="hero-phase-label">受付期間</span>
+          <span class="value" id="hero-phase-value">2026年3月27日〜4月6日</span>
         </div>
       </div>
       <div class="hero-btn-group">
-        <a href="#form" class="btn-primary">今すぐ先行申込みをする</a>
-        <a href="#about" class="btn-outline">詳細を見る ↓</a>
+        <a href="#form" class="btn-primary" onclick="trackEvent('cta_click',{button_name:'hero_primary',location:'hero'})">今すぐ先行申込みをする</a>
+        <a href="#about" class="btn-outline" onclick="trackEvent('cta_click',{button_name:'hero_detail',location:'hero'})">詳細を見る ↓</a>
       </div>
       <!-- 補助金バナー -->
       <div class="subsidy-banner">
         <div class="sb-icon">🏛️</div>
         <div>
           <div class="sb-title">石油協会補助金の対象製品です</div>
-          <div class="sb-note">※ GoNOWセンサー本体との同時申請の場合に限ります。専用カバー単独での補助金申請はできません。</div>
+          <div class="sb-note">
+            ※ 専用カバーは「石油協会補助金」が利用可能です（予定）<br>
+            ※ なおセンサー本体と同時申請の場合に限ります。専用カバー単体の補助金申請はできません。<br>
+            ※ 専用カバーを補助金利用される場合は、担当営業より別途ご案内をさせていただきます。
+          </div>
         </div>
       </div>
     </div>
@@ -378,15 +423,13 @@ footer a:hover{color:var(--blue);}
     <div class="hero-right">
       <div class="hero-product-stage">
         <div class="hero-product-glow"></div>
-        <div class="hero-product-img">
-          <img src="./helo.png" alt="GoNOWセンサー専用カバー">
-        </div>
+        <img src="./helo.png" alt="センサー専用カバー" style="position:relative;z-index:1;width:100%;max-width:420px;border-radius:20px;object-fit:contain;animation:float 6s ease-in-out infinite;">
       </div>
       <div class="hero-tags">
         <span class="hero-tag">🔒 南京錠対応</span>
         <span class="hero-tag">❄️ キャップ氷結防止</span>
         <span class="hero-tag">🛡️ ポリカーボネート製</span>
-        <span class="hero-tag">📦 50個〜バルク納品</span>
+        <span class="hero-tag">📦 20個〜バルク納品</span>
       </div>
       <div class="hero-gauge">
         <div class="gauge-label">CURRENT PROGRESS — 申込み状況</div>
@@ -438,18 +481,18 @@ footer a:hover{color:var(--blue);}
     <p class="section-desc">試作サンプルによるイメージです。量産品は設計を最終調整して製造します。</p>
     <div class="gallery-grid">
       <div class="gallery-card">
-        <div class="g-img-wrap">
-          <img src="./01.png" alt="センサー専用カバー 閉じた状態">
+        <div class="g-img-wrap" style="background:#f8f8f8;padding:24px;">
+          <img src="./01.png" alt="センサー専用カバー 閉じた状態" style="max-width:100%;max-height:280px;object-fit:contain;">
         </div>
         <div class="g-body">
           <span class="g-badge">閉じた状態</span>
           <h4>センサーと給油口を保護</h4>
-          <p>上蓋を閉じることでセンサーと給油口をカバー。横のラッチで固定し、南京錠での施錠も可能な設計です。</p>
+          <p>給油口をカバー、横のラッチを使って南京錠等で施錠が可能な設計です。</p>
         </div>
       </div>
       <div class="gallery-card">
-        <div class="g-img-wrap light">
-          <img src="./02.jpg" alt="灯油タンクへの取り付けイメージ">
+        <div class="g-img-wrap light" style="padding:24px;">
+          <img src="./02.jpg" alt="灯油タンクへの取り付けイメージ" style="max-width:100%;max-height:280px;object-fit:contain;">
         </div>
         <div class="g-body">
           <span class="g-badge">取り付けイメージ</span>
@@ -473,7 +516,7 @@ footer a:hover{color:var(--blue);}
       <tr><th>外寸</th><td>Φ120mm × H110mm（上蓋H25mm + 本体H85mm）</td></tr>
       <tr><th>販売対象</th><td>既存のGoNOW利用企業様（法人限定・一般販売なし）</td></tr>
       <tr><th>納品形態</th><td>バルク形式（個装箱なし / 上蓋と本体の組み立て式）</td></tr>
-      <tr><th>最小発注単位</th><td>50個〜</td></tr>
+      <tr><th>最小発注単位</th><td>20個〜</td></tr>
       <tr><th>送料</th><td>製品のお届けの際、別途送料をいただきます</td></tr>
     </table>
     <div class="spec-notes">
@@ -492,18 +535,18 @@ footer a:hover{color:var(--blue);}
     <div class="price-grid">
       <div class="price-card featured">
         <div class="price-ribbon">おすすめ</div>
-        <div class="p-phase">PHASE 1 — 〜2026年4月中旬</div>
+        <div class="p-phase">PHASE 1 — 2026年3/27〜4/6</div>
         <div class="p-name">第1期先行受注</div>
         <div class="price-num">¥1,750</div>
-        <div class="price-unit">/個（税別・送料別）· 50個〜</div>
+        <div class="price-unit">/個（税別・送料別）· 20個〜</div>
         <div class="price-badge badge-off30">定価の 30% OFF</div>
         <div class="price-note">現在受付中。目標1,000個達成時のみ製造。未達成の場合は完全キャンセル（費用発生なし）。</div>
       </div>
       <div class="price-card">
-        <div class="p-phase">PHASE 2 — 2026年4月〜</div>
+        <div class="p-phase">PHASE 2 — 2026年4/7〜4/20</div>
         <div class="p-name">第2期先行受注</div>
         <div class="price-num" style="color:var(--navy)">¥2,250</div>
-        <div class="price-unit">/個（税別・送料別）· 50個〜</div>
+        <div class="price-unit">/個（税別・送料別）· 20個〜</div>
         <div class="price-badge badge-off10">定価の 10% OFF</div>
         <div class="price-note">第1期より価格は上がりますが、通常定価よりはお得な価格でご案内します。</div>
       </div>
@@ -516,7 +559,7 @@ footer a:hover{color:var(--blue);}
         <div class="price-note">先行受注キャンペーン終了後の通常販売価格。在庫確保後の販売となります。</div>
       </div>
     </div>
-    <p style="margin-top:16px;font-size:.78rem;color:var(--text-light);text-align:center;">※ 最小発注単位は50個〜となります。詳細はご担当者にご確認ください。</p>
+    <p style="margin-top:16px;font-size:.78rem;color:var(--text-light);text-align:center;">※ 最小発注単位は20個〜となります。詳細はご担当者にご確認ください。</p>
   </div>
 </section>
 
@@ -535,7 +578,7 @@ footer a:hover{color:var(--blue);}
     </div>
     <div class="scheme-warn">
       <span class="w-icon">⚠️</span>
-      <p>本企画はAll-or-Nothing方式です。<strong>第1期・第2期合計で1,000個に達しない場合、製造は行われず申込みはすべてキャンセルとなります</strong>（費用は一切発生しません）。お客様には5月中旬頃にご連絡いたします。</p>
+      <p>本企画はAll-or-Nothing方式です。<strong>第1期・第2期合計で1,000個に達しない場合、製造は行われず申込みはすべてキャンセルとなります</strong>（費用は一切発生しません）。お客様には2026年4月中旬頃にご連絡いたします。</p>
     </div>
   </div>
 </section>
@@ -572,11 +615,17 @@ footer a:hover{color:var(--blue);}
   <div class="section-inner">
     <span class="section-label">Application Form</span>
     <h2 class="section-title">先行受注のお申込み</h2>
-    <p class="section-desc">下記フォームにご入力のうえ送信してください。弊社担当より確認のご連絡をさしあげます。</p>
+    <p class="section-desc">下記フォームにご入力のうえ、送信してください。弊社担当より確認のご連絡をさしあげます。</p>
     <div class="form-card">
       <div class="form-header">
-        <h3>📋 先行受注申込みフォーム（第1期 · 30% OFF）</h3>
+        <h3 id="form-header-title">📋 先行受注申込みフォーム（第1期 · 30% OFF）</h3>
         <p>※ 本フォームはお申込みの意向確認です。正式な発注書は後日ご送付いたします。</p>
+      </div>
+      <!-- 受付終了メッセージ（JSで表示切替） -->
+      <div id="closed-msg" style="display:none;background:linear-gradient(135deg,#f0f4f8,#e8edf2);border:1.5px solid #b0c0cc;border-radius:16px;padding:40px;text-align:center;">
+        <div style="font-size:2.5rem;margin-bottom:16px;">🔒</div>
+        <h4 style="color:#1a2535;font-size:1.2rem;font-weight:700;margin-bottom:10px;">先行受注の受付は終了しました</h4>
+        <p style="color:#4a5a6a;font-size:.9rem;line-height:1.8;">第1期・第2期の受付期間が終了いたしました。<br>今後の販売情報は担当営業よりご案内いたします。<br>ご関心をお寄せいただきありがとうございました。</p>
       </div>
       <div id="form-body">
         <div class="form-grid">
@@ -598,16 +647,7 @@ footer a:hover{color:var(--blue);}
           </div>
           <div class="form-group">
             <label>申込希望数 <span class="req">必須</span></label>
-            <select id="qty">
-              <option value="">── 選択してください ──</option>
-              <option value="50">50個（最小ロット）</option>
-              <option value="100">100個</option>
-              <option value="150">150個</option>
-              <option value="200">200個</option>
-              <option value="300">300個</option>
-              <option value="500">500個</option>
-              <option value="other">その他（担当よりご確認）</option>
-            </select>
+            <input type="number" id="qty" min="20" step="1" placeholder="個数を入力（20個以上）" style="height:48px;border:1.5px solid var(--border);border-radius:10px;padding:0 16px;font-size:.93rem;font-family:'Noto Sans JP',sans-serif;color:var(--text);background:var(--bg);transition:all .2s;outline:none;">
           </div>
           <div class="form-group">
             <label>お申込み期 <span class="req">必須</span></label>
@@ -629,7 +669,7 @@ footer a:hover{color:var(--blue);}
         </div>
         <div class="error-msg" id="err-msg">⚠️ <span id="err-text">すべての必須項目を入力し、個人情報への同意にチェックしてください。</span></div>
         <div class="form-submit-area">
-          <button class="submit-btn" id="submit-btn" onclick="submitForm()">📩 先行受注を申し込む（無料・キャンセル可）</button>
+          <button class="submit-btn" id="submit-btn" onclick="trackEvent('cta_click',{button_name:'submit_btn',location:'form'});submitForm()">📩 先行受注を申し込む（無料・キャンセル可）</button>
           <p class="submit-note">
             ※ 1,000個未達成の場合、申込みは自動キャンセルとなります（費用発生なし）<br>
             ※ 正式な発注書は後日担当よりご送付します
@@ -653,31 +693,24 @@ footer a:hover{color:var(--blue);}
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-dot blue">🚀</div>
-        <div class="tl-date">2026年3月23日（月）〜 4月5日（日）</div>
+        <div class="tl-date">2026年3月27日〜4月6日</div>
         <div class="tl-title">【CFフェーズ】第1期募集</div>
-        <div class="tl-desc">プレミア価格・30% OFF（1,750円/個）で先行受注を受付。GoNOW利用企業様限定のクローズドオファーです。</div>
+        <div class="tl-desc">30% OFF（1,750円/個）の特別価格で先行受注を受付。GoNOW利用企業様限定のクローズドオファーです。</div>
         <span class="tl-tag blue">受付中 · 30% OFF</span>
       </div>
       <div class="tl-item">
-        <div class="tl-dot blue">📋</div>
-        <div class="tl-date">2026年4月6日（月）〜 4月19日（日）</div>
+        <div class="tl-dot blue">🚀</div>
+        <div class="tl-date">2026年4月7日〜4月20日</div>
         <div class="tl-title">【CFフェーズ】第2期募集</div>
-        <div class="tl-desc">15% OFF（2,250円/個）での受付。第1期より価格は上がります。早めのご申込みをおすすめします。</div>
-        <span class="tl-tag navy">4/6〜4/19 · 15% OFF</span>
+        <div class="tl-desc">10% OFF（2,250円/個）での受付。第1期より価格は上がります。早めのご申込みをおすすめします。</div>
+        <span class="tl-tag navy">4/7〜4/20 · 10% OFF</span>
       </div>
       <div class="tl-item">
         <div class="tl-dot navy">⚖️</div>
-        <div class="tl-date">2026年4月19日（日）</div>
-        <div class="tl-title">【ジャッジフェーズ】GO / NO-GO 判断</div>
+        <div class="tl-date">2026年5月</div>
+        <div class="tl-title">【ジャッジフェーズ】最終集計・達成判定</div>
         <div class="tl-desc">第1期・第2期合計の申込み数を確認。1,000個以上で成立。未達成の場合は全申込みをキャンセル（費用なし）。</div>
         <span class="tl-tag navy">判定フェーズ</span>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot navy">🏦</div>
-        <div class="tl-date">2026年4月20日（月）以降</div>
-        <div class="tl-title">【補助金フェーズ】石油協会補助金 申請受付開始</div>
-        <div class="tl-desc">補助金申請を希望されるお客様は4/20以降にお手続きをお願いします。専用カバーはGoNOWセンサー本体との同時申請が必要です。補助金募集期間は3月27日〜5月15日を想定しています。</div>
-        <span class="tl-tag blue">補助金申請 · 4/20〜</span>
       </div>
       <div class="tl-item">
         <div class="tl-dot navy">🏭</div>
@@ -709,18 +742,18 @@ footer a:hover{color:var(--blue);}
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">申込みはいつ確定しますか？</span><span class="faq-toggle">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">本フォームはお申込みの意向確認です。正式な発注書・注文書は2026年5月の達成確定後にご送付いたします。達成した場合のみ正式な発注手続きに進みます。</div></div>
+        <div class="faq-a"><div class="faq-a-inner">本フォームはお申込みの意向確認です。正式な発注書・注文書は2026年4月の達成確定後にご送付いたします。達成した場合のみ正式な発注手続きに進みます。</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">最小発注単位はいくつですか？</span><span class="faq-toggle">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">50個〜を最小発注単位としております。詳細な数量・梱包については担当者よりご確認いたします。</div></div>
+        <div class="faq-a"><div class="faq-a-inner">最小発注単位は20個〜となります。詳細な数量・梱包については担当者よりご確認いただけますと幸いです。</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">石油協会補助金は使えますか？</span><span class="faq-toggle">+</span></div>
         <div class="faq-a"><div class="faq-a-inner">GoNOWセンサー本体との同時申請の場合に限り、補助金対象となります。専用カバー単独での補助金申請はできませんのでご注意ください。詳細は担当までお問い合わせください。</div></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">既存センサーとの互換性はありますか？</span><span class="faq-toggle">+</span></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">既設のスマートオイルセンサーに取り付けできますか？</span><span class="faq-toggle">+</span></div>
         <div class="faq-a"><div class="faq-a-inner">ゼロスペックのスマートオイルセンサー専用設計です。ホクエイ・サンダイヤ・ダイケン等の主要メーカー製200ℓ以上タンクに対応しています。タンクの形状によっては取り付けられない場合があります。詳細は担当よりご確認ください。</div></div>
       </div>
       <div class="faq-item">
@@ -740,24 +773,186 @@ footer a:hover{color:var(--blue);}
 </footer>
 
 <script>
-const GAS_URL = 'https://script.google.com/macros/s/AKfycbyxn-KrDdKeaZqRuOKYvSJYgG8T0Vgw5UW4BTbFKActnMMIl_gYt2sivBnGvnTazLpCOg/exec';
-const GOAL = 1000;
+// ════════════════════════════════════════
+//  設定
+// ════════════════════════════════════════
+const GAS_URL = 'YOUR_GAS_WEB_APP_URL_HERE';
+const GOAL    = 1000;
 
+// フェーズ境界（ローカル時刻）
+const PHASE1_END = new Date('2026-04-06T23:59:59'); // 4/6 23:59:59まで第1期
+const PHASE2_END = new Date('2026-04-20T23:59:59'); // 4/20 23:59:59まで第2期
+const CLOSE_AT   = new Date('2026-04-21T00:00:00'); // 4/21 00:00 自動クローズ
+
+// ════════════════════════════════════════
+//  デバッグ用疑似時刻
+// ════════════════════════════════════════
+let _debugTime = null;
+
+function now() { return _debugTime ? new Date(_debugTime) : new Date(); }
+
+function applyDebugTime() {
+  const val = document.getElementById('dbg-preset').value;
+  if (!val) return;
+  _debugTime = new Date(val);
+  applyPhase();
+  updateDebugPanel();
+}
+
+function clearDebugTime() {
+  _debugTime = null;
+  document.getElementById('dbg-preset').value = '';
+  applyPhase();
+  updateDebugPanel();
+}
+
+// ════════════════════════════════════════
+//  フェーズ判定
+// ════════════════════════════════════════
+function getPhase() {
+  const t = now();
+  if (t <= PHASE1_END) return 'phase1';
+  if (t <= PHASE2_END) return 'phase2';
+  return 'closed';
+}
+
+// ════════════════════════════════════════
+//  フェーズ設定マップ
+// ════════════════════════════════════════
+const PHASE_CONFIG = {
+  phase1: {
+    heroPriceLabel : '第1期価格（30% OFF）',
+    heroPriceHTML  : '¥1,750<small style="font-size:.55em;font-weight:600">/個（税別・送料別）</small>',
+    heroPhaseLabel : '第1期受付中',
+    heroPhaseValue : '〜2026年4月6日 23:59',
+    formTitle      : '📋 先行受注申込みフォーム（第1期 · 30% OFF）',
+    phaseValue     : '第1期（1,750円/個・30%OFF）',
+    showForm       : true,
+    countdownEnd   : PHASE1_END,
+    countdownLabel : '第1期終了まで',
+  },
+  phase2: {
+    heroPriceLabel : '第2期価格（10% OFF）',
+    heroPriceHTML  : '¥2,250<small style="font-size:.55em;font-weight:600">/個（税別・送料別）</small>',
+    heroPhaseLabel : '第2期受付中',
+    heroPhaseValue : '〜2026年4月20日 23:59',
+    formTitle      : '📋 先行受注申込みフォーム（第2期 · 10% OFF）',
+    phaseValue     : '第2期（2,250円/個・10%OFF）',
+    showForm       : true,
+    countdownEnd   : PHASE2_END,
+    countdownLabel : '第2期終了まで',
+  },
+  closed: {
+    heroPriceLabel : '受付終了',
+    heroPriceHTML  : '—',
+    heroPhaseLabel : '受付期間',
+    heroPhaseValue : '終了しました',
+    formTitle      : '先行受注の受付は終了しました',
+    phaseValue     : null,
+    showForm       : false,
+    countdownEnd   : null,
+    countdownLabel : '',
+  },
+};
+
+// ════════════════════════════════════════
+//  UI適用
+// ════════════════════════════════════════
+let _countdownEl = null;
+
+function applyPhase() {
+  const phase = getPhase();
+  const cfg   = PHASE_CONFIG[phase];
+
+  // hero-meta
+  const el = (id) => document.getElementById(id);
+  if (el('hero-price-label')) el('hero-price-label').textContent = cfg.heroPriceLabel;
+  if (el('hero-price-value')) el('hero-price-value').innerHTML   = cfg.heroPriceHTML;
+  if (el('hero-phase-label')) el('hero-phase-label').textContent = cfg.heroPhaseLabel;
+  if (el('hero-phase-value')) el('hero-phase-value').textContent = cfg.heroPhaseValue;
+
+  // フォームヘッダー
+  if (el('form-header-title')) el('form-header-title').textContent = cfg.formTitle;
+
+  // フォーム表示切替
+  if (el('form-body') && el('closed-msg')) {
+    el('form-body').style.display  = cfg.showForm ? '' : 'none';
+    el('closed-msg').style.display = cfg.showForm ? 'none' : 'block';
+  }
+
+  // 期選択を自動セット＆ロック
+  const phaseSelect = el('phase');
+  if (phaseSelect && cfg.phaseValue) {
+    for (const opt of phaseSelect.options) {
+      if (opt.value.includes(cfg.phaseValue.split('（')[0])) { opt.selected = true; break; }
+    }
+    phaseSelect.disabled      = true;
+    phaseSelect.style.opacity = '0.75';
+    phaseSelect.style.cursor  = 'not-allowed';
+    phaseSelect.title         = '現在の受付期に自動設定されています';
+  }
+
+  // カウントダウン更新
+  updateCountdown(cfg);
+}
+
+// ════════════════════════════════════════
+//  カウントダウン
+// ════════════════════════════════════════
+function pad2(n) { return String(n).padStart(2,'0'); }
+
+function formatCountdown(ms) {
+  if (ms <= 0) return '00:00:00';
+  const s = Math.floor(ms / 1000);
+  return `${pad2(Math.floor(s/3600))}:${pad2(Math.floor((s%3600)/60))}:${pad2(s%60)}`;
+}
+
+function updateCountdown(cfg) {
+  if (!_countdownEl) return;
+  if (!cfg.countdownEnd) { _countdownEl.style.display = 'none'; return; }
+  const diff = cfg.countdownEnd - now();
+  _countdownEl.style.display = '';
+  _countdownEl.querySelector('.cd-label').textContent = cfg.countdownLabel;
+  _countdownEl.querySelector('.cd-time').textContent  = formatCountdown(diff);
+  if (diff <= 0) { setTimeout(applyPhase, 500); } // 期切替を即反映
+}
+
+// ════════════════════════════════════════
+//  デバッグパネル
+// ════════════════════════════════════════
+function updateDebugPanel() {
+  const t     = now();
+  const phase = getPhase();
+  const cfg   = PHASE_CONFIG[phase];
+  const el    = (id) => document.getElementById(id);
+  if (!el('dbg-now')) return;
+
+  el('dbg-now').textContent = t.toLocaleString('ja-JP');
+
+  const badgeCls = { phase1:'phase1', phase2:'phase2', closed:'closed' };
+  const label    = { phase1:'第1期受付中', phase2:'第2期受付中', closed:'受付終了' };
+  el('dbg-phase').innerHTML = `<span class="dbg-badge ${badgeCls[phase]}">${label[phase]}</span>`;
+  el('dbg-remain').textContent = cfg.countdownEnd ? formatCountdown(cfg.countdownEnd - t) : '—';
+}
+
+// ════════════════════════════════════════
+//  進捗ゲージ
+// ════════════════════════════════════════
 function updateGauges(count) {
-  const pct = Math.min((count / GOAL) * 100, 100);
+  const pct    = Math.min((count / GOAL) * 100, 100);
   const pctStr = pct.toFixed(1) + '%';
   const remain = Math.max(GOAL - count, 0);
   document.getElementById('hero-count').textContent = count.toLocaleString();
-  document.getElementById('hero-bar').style.width = pct + '%';
-  document.getElementById('hero-pct').textContent = pctStr;
+  document.getElementById('hero-bar').style.width   = pct + '%';
+  document.getElementById('hero-pct').textContent   = pctStr;
   const r = document.getElementById('hero-remain');
   if (r) r.textContent = '目標まであと ' + remain.toLocaleString() + '個';
   document.getElementById('live-count').textContent = count.toLocaleString();
-  document.getElementById('live-bar').style.width = pct + '%';
-  document.getElementById('live-pct').textContent = pctStr;
-  const now = new Date();
+  document.getElementById('live-bar').style.width   = pct + '%';
+  document.getElementById('live-pct').textContent   = pctStr;
+  const t = now();
   document.getElementById('live-updated').textContent =
-    '最終更新: ' + now.toLocaleDateString('ja-JP') + ' ' + now.toLocaleTimeString('ja-JP', {hour:'2-digit',minute:'2-digit'});
+    '最終更新: ' + t.toLocaleDateString('ja-JP') + ' ' + t.toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
 }
 
 async function fetchProgress() {
@@ -767,7 +962,7 @@ async function fetchProgress() {
     return;
   }
   try {
-    const res = await fetch(GAS_URL + '?action=getTotal');
+    const res  = await fetch(GAS_URL + '?action=getTotal');
     const data = await res.json();
     updateGauges(data.total || 0);
   } catch(e) {
@@ -775,6 +970,16 @@ async function fetchProgress() {
   }
 }
 
+// ════════════════════════════════════════
+//  GA4
+// ════════════════════════════════════════
+function trackEvent(eventName, params = {}) {
+  if (typeof gtag === 'function') gtag('event', eventName, params);
+}
+
+// ════════════════════════════════════════
+//  フォーム送信
+// ════════════════════════════════════════
 async function submitForm() {
   const company = document.getElementById('company').value.trim();
   const name    = document.getElementById('name').value.trim();
@@ -788,26 +993,28 @@ async function submitForm() {
   const errText = document.getElementById('err-text');
   errEl.classList.remove('show');
 
-  if (!company || !name || !email || !tel || !qty) {
-    errText.textContent = 'すべての必須項目を入力してください。';
+  if (!company || !name || !email || !tel || !qty || parseInt(qty) < 20) {
+    errText.textContent = '必須項目をすべて入力し、申込希望数は20個以上を入力してください。';
     errEl.classList.add('show');
-    errEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    errEl.scrollIntoView({ behavior:'smooth', block:'nearest' });
+    trackEvent('form_error', { error_type:'validation_empty' });
     return;
   }
-  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRe.test(email)) {
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     errText.textContent = 'メールアドレスの形式が正しくありません。';
     errEl.classList.add('show');
+    trackEvent('form_error', { error_type:'invalid_email' });
     return;
   }
   if (!privacy) {
     errText.textContent = '個人情報の取り扱いへの同意が必要です。';
     errEl.classList.add('show');
+    trackEvent('form_error', { error_type:'privacy_not_checked' });
     return;
   }
 
   const btn = document.getElementById('submit-btn');
-  btn.disabled = true;
+  btn.disabled    = true;
   btn.textContent = '送信中...';
   const payload = { company, name, email, tel, qty, phase, note, timestamp: new Date().toISOString() };
 
@@ -815,29 +1022,97 @@ async function submitForm() {
     await new Promise(r => setTimeout(r, 900));
     document.getElementById('form-body').style.display = 'none';
     document.getElementById('success-msg').classList.add('show');
+    trackEvent('form_complete', { phase, qty: parseInt(qty) });
     fetchProgress();
     return;
   }
   try {
-    await fetch(GAS_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body: JSON.stringify(payload) });
+    await fetch(GAS_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
     document.getElementById('form-body').style.display = 'none';
     document.getElementById('success-msg').classList.add('show');
+    trackEvent('form_complete', { phase, qty: parseInt(qty) });
     fetchProgress();
   } catch(e) {
-    btn.disabled = false;
+    btn.disabled    = false;
     btn.textContent = '📩 先行受注を申し込む（無料・キャンセル可）';
     errText.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
     errEl.classList.add('show');
+    trackEvent('form_error', { error_type:'network_error' });
   }
 }
 
+// ════════════════════════════════════════
+//  FAQ
+// ════════════════════════════════════════
 function toggleFaq(el) {
-  const item = el.closest('.faq-item');
+  const item    = el.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
   item.classList.toggle('open');
+  if (!wasOpen) trackEvent('faq_open', { question: el.querySelector('.faq-q-text')?.textContent || '' });
 }
 
+// ════════════════════════════════════════
+//  DOMContentLoaded
+// ════════════════════════════════════════
 document.addEventListener('DOMContentLoaded', () => {
   fetchProgress();
+
+  // カウントダウンバナーを動的生成
+  const formSection = document.getElementById('form');
+  if (formSection) {
+    const cdEl = document.createElement('div');
+    cdEl.id = 'phase-countdown';
+    cdEl.innerHTML = `<span class="cd-label"></span><span class="cd-time" style="font-family:'Montserrat',monospace;font-size:1.1rem;font-weight:800;letter-spacing:.08em;"></span>`;
+    cdEl.style.cssText = 'display:flex;align-items:center;gap:12px;justify-content:center;background:rgba(0,191,255,.08);border:1px solid rgba(0,191,255,.2);border-radius:10px;padding:10px 20px;margin-bottom:20px;font-size:.85rem;font-weight:700;color:var(--blue-deeper);';
+    const formCard = formSection.querySelector('.form-card');
+    if (formCard) formCard.parentNode.insertBefore(cdEl, formCard);
+    _countdownEl = cdEl;
+  }
+
+  // デバッグモード（URLパラメータ ?debug=1）
+  if (new URLSearchParams(window.location.search).get('debug') === '1') {
+    document.getElementById('debug-panel').style.display = 'block';
+    updateDebugPanel();
+  }
+
+  // フェーズ初回適用
+  applyPhase();
+
+  // 1秒ごとの更新
+  setInterval(() => {
+    const cfg = PHASE_CONFIG[getPhase()];
+    updateCountdown(cfg);
+    if (document.getElementById('debug-panel').style.display !== 'none') updateDebugPanel();
+  }, 1000);
+
+  // フォーム入力開始トラッキング
+  let formStarted = false;
+  ['company','name','email','tel','qty','note'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('focus', () => {
+      if (!formStarted) { formStarted = true; trackEvent('form_start', { location:'form_section' }); }
+    });
+  });
+
+  // 期選択トラッキング
+  const phaseEl = document.getElementById('phase');
+  if (phaseEl) phaseEl.addEventListener('change', () => trackEvent('phase_select', { selected_phase: phaseEl.value }));
+
+  // スクロール深度
+  const depths = [25,50,75,100], fired = new Set();
+  window.addEventListener('scroll', () => {
+    const pct = Math.floor(((window.scrollY + window.innerHeight) / document.body.scrollHeight) * 100);
+    depths.forEach(d => { if (pct >= d && !fired.has(d)) { fired.add(d); trackEvent('scroll_depth',{depth_pct:d}); } });
+  }, { passive:true });
+
+  // セクション到達
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { trackEvent('section_view',{section_name:e.target.dataset.trackLabel}); obs.unobserve(e.target); } });
+  }, { threshold:0.3 });
+  [['about','features'],['gallery','gallery'],['progress','progress'],['form','form']].forEach(([id,lbl]) => {
+    const el = document.getElementById(id);
+    if (el) { el.dataset.trackLabel = lbl; obs.observe(el); }
+  });
 });
 </script>
 </body>
