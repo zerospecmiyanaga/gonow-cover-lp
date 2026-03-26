@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>特定商取引法に基づく表記 | GoNOW スマートオイルセンサー専用カバー 先行受注プロジェクト</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    :root {
+      --brand: #00BFFF;
+      --brand-dark: #0090cc;
+      --brand-light: #e6f9ff;
+      --text: #1a2332;
+      --text-sub: #4a5568;
+      --border: #d1e8f5;
+      --bg: #f7fbfe;
+      --white: #ffffff;
+      --warning-bg: #fff8e6;
+      --warning-border: #f0a500;
+      --warning-text: #7a5200;
+      --header-bg: #003d5c;
+      --section-head-bg: #e6f4fb;
+      --section-head-text: #005580;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'BIZ UDPGothic', 'BIZ UDPゴシック', 'Meiryo', 'メイリオ', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    /* ─── Header ─── */
+    .site-header {
+      background: var(--header-bg);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .site-header .brand-mark {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--brand);
+      letter-spacing: -0.5px;
+    }
+
+    .site-header .project-name {
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.3;
+    }
+
+    /* ─── Hero banner ─── */
+    .page-hero {
+      background: linear-gradient(135deg, #003d5c 0%, #005a8a 60%, #0090cc 100%);
+      padding: 40px 24px 36px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300BFFF' fill-opacity='0.07'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(18px, 4vw, 26px);
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: 0.05em;
+      line-height: 1.4;
+      margin-bottom: 8px;
+      position: relative;
+    }
+
+    .page-hero .subtitle {
+      font-size: 13px;
+      color: var(--brand);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      position: relative;
+    }
+
+    /* ─── Warning box ─── */
+    .warning-box {
+      background: var(--warning-bg);
+      border: 2px solid var(--warning-border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 28px auto;
+      max-width: 860px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .warning-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+      line-height: 1.6;
+    }
+
+    .warning-box p {
+      color: var(--warning-text);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .warning-box strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* ─── Main container ─── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 24px 20px 60px;
+    }
+
+    /* ─── Section ─── */
+    .section-block {
+      background: var(--white);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      margin-bottom: 24px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,100,150,0.06);
+    }
+
+    .section-title {
+      background: var(--section-head-bg);
+      border-bottom: 2px solid var(--brand);
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 900;
+      color: var(--section-head-text);
+      letter-spacing: 0.04em;
+    }
+
+    .section-title::before {
+      content: '■ ';
+    }
+
+    /* ─── Table ─── */
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .info-table tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .info-table th {
+      width: 32%;
+      padding: 14px 16px;
+      background: var(--bg);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-sub);
+      text-align: left;
+      vertical-align: top;
+      border-right: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    .info-table td {
+      padding: 14px 16px;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.85;
+      vertical-align: top;
+    }
+
+    .info-table td p {
+      margin-bottom: 10px;
+    }
+
+    .info-table td p:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-table td ul {
+      padding-left: 1.4em;
+      margin: 6px 0;
+    }
+
+    .info-table td ul li {
+      margin-bottom: 4px;
+    }
+
+    .info-table td .note {
+      font-size: 12.5px;
+      color: var(--text-sub);
+      background: var(--bg);
+      border-left: 3px solid var(--brand);
+      padding: 8px 12px;
+      border-radius: 0 4px 4px 0;
+      margin-top: 8px;
+      line-height: 1.7;
+    }
+
+    .info-table td .price-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .info-table td .price-list li {
+      padding: 6px 0;
+      border-bottom: 1px dashed var(--border);
+      font-size: 14px;
+    }
+
+    .info-table td .price-list li:last-child {
+      border-bottom: none;
+    }
+
+    .price-tag {
+      font-weight: 900;
+      color: var(--brand-dark);
+      font-size: 15px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--brand);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 1px 7px;
+      border-radius: 10px;
+      margin-left: 6px;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    .highlight-box {
+      background: var(--brand-light);
+      border: 1px solid var(--brand);
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-top: 8px;
+      font-size: 13.5px;
+      line-height: 1.75;
+    }
+
+    /* ─── Caution note ─── */
+    .caution-note {
+      font-size: 13px;
+      color: #666;
+      font-style: italic;
+    }
+
+    /* ─── Footer ─── */
+    .page-footer {
+      background: var(--header-bg);
+      color: rgba(255,255,255,0.65);
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .page-footer a {
+      color: var(--brand);
+      text-decoration: none;
+    }
+
+    .page-footer .company-name {
+      color: white;
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    /* ─── Back link ─── */
+    .back-link-wrap {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--brand-dark);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      border: 2px solid var(--brand);
+      padding: 8px 18px;
+      border-radius: 100px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .back-link:hover {
+      background: var(--brand);
+      color: white;
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 600px) {
+      .info-table th {
+        width: 38%;
+        font-size: 12px;
+        padding: 12px 10px;
+        white-space: normal;
+      }
+      .info-table td {
+        padding: 12px 10px;
+        font-size: 13px;
+      }
+      .page-hero {
+        padding: 28px 16px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+  <span class="brand-mark">GoNOW</span>
+  <span class="project-name">スマートオイルセンサー専用カバー<br>先行受注プロジェクト</span>
+</header>
+
+<!-- Hero -->
+<div class="page-hero">
+  <h1>特定商取引法に基づく表記</h1>
+  <div class="subtitle">GoNOW スマートオイルセンサー専用カバー　先行受注プロジェクト</div>
+</div>
+
+<!-- Main -->
+<div class="container">
+
+  <!-- Warning Box -->
+  <div class="warning-box">
+    <span class="warning-icon">⚠️</span>
+    <p>
+      <strong>本プロジェクトは購入型クラウドファンディング（All-or-Nothing方式）による先行受注です。</strong>
+      第1期・第2期の合計申込数が目標1,000個に達しない場合、製造は行われず申込みはすべてキャンセルとなります（費用は一切発生しません）。
+    </p>
+  </div>
+
+  <!-- 販売事業者情報 -->
+  <div class="section-block">
+    <div class="section-title">販売事業者情報</div>
+    <table class="info-table">
+      <tr>
+        <th>販売業者の名称</th>
+        <td>ゼロスペック株式会社</td>
+      </tr>
+      <tr>
+        <th>代表者氏名</th>
+        <td>多田 満朗</td>
+      </tr>
+      <tr>
+        <th>所在地</th>
+        <td>北海道札幌市中央区北２条東１丁目2−2<br>プラチナ札幌ビル 8F</td>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <td>011-218-0155</td>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <td><a href="mailto:biz@zero-spec.com" style="color: var(--brand-dark);">biz@zero-spec.com</a></td>
+      </tr>
+      <tr>
+        <th>担当部署・責任者</th>
+        <td>営業部（GoNOW担当）</td>
+      </tr>
+      <tr>
+        <th>受付時間</th>
+        <td>平日 9:00〜18:00（土日祝・年末年始を除く）</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 商品・サービスに関する事項 -->
+  <div class="section-block">
+    <div class="section-title">商品・サービスに関する事項</div>
+    <table class="info-table">
+      <tr>
+        <th>販売商品名</th>
+        <td><strong>GoNOW スマートオイルセンサー専用カバー（ポリカーボネート製）</strong></td>
+      </tr>
+      <tr>
+        <th>商品の説明</th>
+        <td>
+          <p>灯油タンク（200ℓ以上）に設置するGoNOWスマートオイルセンサーに対応した専用保護カバーです。南京錠対応の盗難防止機能と、給油口全体をカバーすることによる冬期氷結防止機能を兼ね備えています。材質はポリカーボネート製（耐衝撃・耐候性・自己消化性）。</p>
+          <p><strong>＜注意事項＞</strong></p>
+          <ul>
+            <li>専用カバーの取り付けには、当社のスマートオイルセンサ―及びアタッチメントをタンク給油口に設置することが必要です。</li>
+            <li>タンク給油口の<strong>直径</strong>が80㎜以上は原則取り付けができません。その他、特殊形状の給油口他・タンク仕様により、取り付けできない場合がございます。</li>
+            <li>納品はバルク形式（個装箱なし/上蓋及び本体分離状態）の予定です。</li>
+            <li>製品は上蓋と本体を各ヒンジ部分を組み合わせる形式です（非固定）。</li>
+            <li>上蓋を180度以上開きすぎると本体から外れる可能性がございます。</li>
+            <li>「鍵」はついておりません。</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>対象顧客</th>
+        <td>既存のGoNOW利用企業様<br><span class="caution-note">（法人限定・一般消費者への販売はおこないません）</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 販売価格・送料・その他費用 -->
+  <div class="section-block">
+    <div class="section-title">販売価格・送料・その他費用</div>
+    <table class="info-table">
+      <tr>
+        <th>販売価格</th>
+        <td>
+          <ul class="price-list">
+            <li>
+              <strong>第1期先行受注</strong>（2026年3月27日〜2026年4月13日）<br>
+              <span class="price-tag">1,750円 / 個</span>
+              <span class="badge">定価比30% OFF</span>
+            </li>
+            <li>
+              <strong>第2期先行受注</strong>（2026年4月14日〜2026年4月20日）<br>
+              <span class="price-tag">2,250円 / 個</span>
+              <span class="badge">定価比10% OFF</span>
+            </li>
+            <li>
+              <strong>通常定価</strong>（2026年10月〜）<br>
+              <span class="price-tag">2,500円 / 個</span>
+            </li>
+          </ul>
+          <div class="note">※ 最小発注単位：20個〜（20個単位でのご注文）　いずれも税別・送料別</div>
+        </td>
+      </tr>
+      <tr>
+        <th>消費税</th>
+        <td>別途消費税（10%）がかかります。</td>
+      </tr>
+      <tr>
+        <th>送料</th>
+        <td>
+          <div class="highlight-box">
+            送料はお申込み数量にかかわらず外装1箱（最大40セット入り）につき全国一律で<strong>3,000円</strong>の予定です（税別・アセンブリ費用等含む）。
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>その他費用</th>
+        <td>商品代金・消費税・送料以外の追加費用は発生しません。ただし、銀行振込の場合の振込手数料は申込企業様のご負担となります。</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 代金の支払方法・支払時期 -->
+  <div class="section-block">
+    <div class="section-title">代金の支払方法・支払時期</div>
+    <table class="info-table">
+      <tr>
+        <th>支払方法</th>
+        <td>
+          <strong>銀行振込</strong>
+          <div class="note">※ お申込みフォームへの入力は意向確認であり、この時点での費用は発生しません。</div>
+        </td>
+      </tr>
+      <tr>
+        <th>支払時期</th>
+        <td>
+          <strong>納品月末締めにて請求書を発行、翌月末払いにてお願いいたします。</strong>
+        </td>
+      </tr>
+      <tr>
+        <th>振込手数料</th>
+        <td>振込手数料は申込企業様のご負担となります。</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 商品の引渡時期 -->
+  <div class="section-block">
+    <div class="section-title">商品の引渡時期</div>
+    <table class="info-table">
+      <tr>
+        <th>お届け予定</th>
+        <td>
+          <strong>2026年10月中に順次発送予定</strong>
+          <p style="margin-top:8px;">目標数量（1,000個）を達成した場合、金型製作・成形・品質検査を経て2026年10月中に順次発送予定です。</p>
+          <div class="note">※ 製造工程の進捗によりお届け時期が変動する場合があります。その際は事前にご連絡いたします。</div>
+        </td>
+      </tr>
+      <tr>
+        <th>目標未達成の場合</th>
+        <td>2026年4月下旬頃に全申込企業様へご連絡のうえ、申込みをキャンセルいたします。費用は一切発生しません。</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- キャンセル・返品・解約 -->
+  <div class="section-block">
+    <div class="section-title">キャンセル・返品・解約に関する事項</div>
+    <table class="info-table">
+      <tr>
+        <th>先行申込み後のキャンセル</th>
+        <td>
+          <p>目標達成・製造確定の連絡（2026年4月下旬予定）前であれば、担当者へご連絡いただくことでキャンセル可能です。</p>
+          <p><strong>製造確定の<u>ご連絡後</u>は、キャンセルはお受けできません。</strong></p>
+        </td>
+      </tr>
+      <tr>
+        <th>返品・交換</th>
+        <td>
+          <p>商品到着後、以下の場合に限り対応いたします。</p>
+          <ul>
+            <li>（1）商品に破損・欠陥があった場合：到着後7日以内にご連絡ください。弊社負担で交換いたします。</li>
+            <li>（2）納品内容に誤りがあった場合：到着後7日以内にご連絡ください。弊社負担で対応いたします。</li>
+          </ul>
+          <div class="note">※ お客様都合による返品はお受けできません（注文内容の確認を経て正式発注書を締結する流れのため）。</div>
+        </td>
+      </tr>
+      <tr>
+        <th>クーリングオフについて</th>
+        <td>本取引は「通信販売」に該当します。特定商取引法のクーリングオフ制度は適用されませんが、お申込み後から製造確定の連絡前までは上記『先行申込後のキャンセル』に従い対応いたします。</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 申込期間・販売数量 -->
+  <div class="section-block">
+    <div class="section-title">申込期間・販売数量</div>
+    <table class="info-table">
+      <tr>
+        <th>申込期間</th>
+        <td>
+          <p><strong>第1期：2026年3月27日（金）〜 2026年4月13日（月）（予定）</strong></p>
+          <p>第2期：2026年4月14日（火）〜 2026年4月20日（月）（予定）</p>
+        </td>
+      </tr>
+      <tr>
+        <th>販売数量</th>
+        <td>
+          目標数量：1,000個（All-or-Nothing方式）<br>
+          最小発注単位：20個〜。上限は特に設けておりません（在庫制限があるため大口の場合は事前にご相談ください）。
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 特別な販売条件 -->
+  <div class="section-block">
+    <div class="section-title">特別な販売条件</div>
+    <table class="info-table">
+      <tr>
+        <th>販売対象の制限</th>
+        <td>本商品は既存のGoNOW利用企業様（法人）限定での販売です。一般消費者への販売はおこなっておりません。</td>
+      </tr>
+      <tr>
+        <th>All-or-Nothing方式</th>
+        <td>本プロジェクトは<strong>購入型クラウドファンディング（All-or-Nothing方式）</strong>をとっています。第1期・第2期の申込合計が目標1,000個に達しない場合、製造はおこなわれず、申込みはすべてキャンセルとなります。費用は一切発生しません。</td>
+      </tr>
+      <tr>
+        <th>正式契約について</th>
+        <td>お申込みフォームへの入力は意向確認です。目標達成後、弊社担当者より正式発注書をご送付します。正式発注書への署名・捺印をもって売買契約が成立します。</td>
+      </tr>
+      <tr>
+        <th>仕様変更の可能性</th>
+        <td>製品の色・規格・仕様は量産化にあたり変更となる場合があります。変更がある場合は事前にご連絡いたします。</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 契約不適合責任 -->
+  <div class="section-block">
+    <div class="section-title">契約不適合責任</div>
+    <table class="info-table">
+      <tr>
+        <th>契約不適合責任</th>
+        <td>
+          <p>当該製品は消耗品です。先述の「返品・交換」の対応以外の保証・交換はございませんので、ご注意ください。</p>
+          <div class="highlight-box">
+            <strong>初期不良対応</strong>：納品後7日以内に汚破損が認められた場合に限り、良品との交換を承ります。
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- お問い合わせ先 -->
+  <div class="section-block">
+    <div class="section-title">お問い合わせ先</div>
+    <table class="info-table">
+      <tr>
+        <th>お問い合わせ先</th>
+        <td>
+          ゼロスペック株式会社　GoNOW担当<br>
+          メール：<a href="mailto:biz@zero-spec.com" style="color: var(--brand-dark);">biz@zero-spec.com</a><br>
+          電話：011-218-0155<br>
+          受付時間：平日 10:00〜18:00（土日祝・年末年始を除く）
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Back link -->
+  <div class="back-link-wrap">
+    <a href="/gonow-cover-lp/" class="back-link">← 先行受注ページへもどる</a>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="page-footer">
+  <div class="company-name">ゼロスペック株式会社</div>
+  <div>北海道札幌市中央区北２条東１丁目2−

@@ -29,38 +29,17 @@
 html{scroll-behavior:smooth;}
 body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;}
 
-/* ── 準備中バナー ── */
-.wip-banner{
-  position:fixed;top:0;left:0;right:0;z-index:9999;
-  background:linear-gradient(90deg,#ff4d00,#ff6b35,#ff4d00);
-  background-size:200% 100%;
-  animation:wip-slide 3s linear infinite;
-  color:white;
-  padding:14px 24px;
-  text-align:center;
-  font-family:'Noto Sans JP',sans-serif;
-  font-weight:700;
-  font-size:1rem;
-  letter-spacing:.08em;
-  box-shadow:0 4px 20px rgba(255,77,0,.5);
-  display:flex;align-items:center;justify-content:center;gap:12px;
-  flex-wrap:wrap;
-}
-@keyframes wip-slide{0%{background-position:0% 0;}100%{background-position:200% 0;}}
-.wip-banner .wip-icon{font-size:1.3rem;animation:wip-shake .6s ease-in-out infinite alternate;}
-@keyframes wip-shake{from{transform:rotate(-8deg);}to{transform:rotate(8deg);}}
-.wip-badge{background:white;color:#ff4d00;font-size:.8rem;font-weight:800;padding:3px 12px;border-radius:99px;letter-spacing:.1em;}
-.wip-note{font-size:.82rem;font-weight:400;opacity:.92;}
+
 
 /* ── NAV ── */
-nav{position:fixed;top:52px;left:0;right:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-bottom:1.5px solid var(--border);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;box-shadow:0 2px 16px rgba(0,191,255,.1);}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-bottom:1.5px solid var(--border);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;box-shadow:0 2px 16px rgba(0,191,255,.1);}
 .nav-logo{display:flex;align-items:center;}
 .nav-logo img{height:36px;width:auto;display:block;}
 .nav-cta{background:var(--blue);color:white;font-weight:700;font-size:.85rem;padding:10px 22px;border-radius:8px;text-decoration:none;letter-spacing:.05em;transition:all .2s;border:none;cursor:pointer;font-family:'Noto Sans JP',sans-serif;box-shadow:0 4px 14px rgba(0,191,255,.3);}
 .nav-cta:hover{background:var(--blue-dark);transform:translateY(-1px);}
 
 /* ── HERO ── */
-.hero{min-height:100vh;background:linear-gradient(145deg,#fff 0%,#eaf8ff 45%,#c8effc 100%);position:relative;overflow:hidden;display:flex;align-items:center;padding:140px 32px 60px;}
+.hero{min-height:100vh;background:linear-gradient(145deg,#fff 0%,#eaf8ff 45%,#c8effc 100%);position:relative;overflow:hidden;display:flex;align-items:center;padding:88px 32px 60px;}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,191,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,191,255,.07) 1px,transparent 1px);background-size:52px 52px;}
 .hero-blob{position:absolute;right:-120px;top:-120px;width:700px;height:700px;background:radial-gradient(circle,rgba(0,191,255,.14) 0%,transparent 65%);pointer-events:none;}
 .hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
@@ -340,9 +319,9 @@ footer a:hover{color:var(--blue);}
   <select class="dbg-select" id="dbg-preset">
     <option value="">── プリセット選択 ──</option>
     <option value="2026-04-05T12:00:00">第1期 中盤（4/5 12:00）</option>
-    <option value="2026-04-06T23:58:00">第1期 終了2分前（4/6 23:58）</option>
-    <option value="2026-04-06T23:59:59">第1期 終了1秒前（4/6 23:59:59）</option>
-    <option value="2026-04-07T00:00:00">第2期 開始直後（4/7 00:00）</option>
+    <option value="2026-04-13T23:58:00">第1期 終了2分前（4/13 23:58）</option>
+    <option value="2026-04-13T23:59:59">第1期 終了1秒前（4/13 23:59:59）</option>
+    <option value="2026-04-14T00:00:00">第2期 開始直後（4/14 00:00）</option>
     <option value="2026-04-15T10:00:00">第2期 中盤（4/15 10:00）</option>
     <option value="2026-04-20T23:58:00">第2期 終了2分前（4/20 23:58）</option>
     <option value="2026-04-20T23:59:59">第2期 終了1秒前（4/20 23:59:59）</option>
@@ -353,14 +332,7 @@ footer a:hover{color:var(--blue);}
 </div>
 <button id="debug-toggle" onclick="document.getElementById('debug-panel').style.display='block';this.style.display='none'">🛠 DEBUG</button>
 
-<!-- 準備中バナー -->
-<div class="wip-banner">
-  <span class="wip-icon">🚧</span>
-  <span class="wip-badge">UNDER CONSTRUCTION</span>
-  <span>このページはただいま<strong>準備中</strong>です。内容・価格・仕様は変更になる場合があります。</span>
-  <span class="wip-note">※ 現在は関係者のみへの共有用です</span>
-  <span class="wip-icon">🚧</span>
-</div>
+
 
 <!-- NAV -->
 <nav>
@@ -399,7 +371,7 @@ footer a:hover{color:var(--blue);}
         </div>
         <div class="hero-meta-item">
           <span class="label" id="hero-phase-label">受付期間</span>
-          <span class="value" id="hero-phase-value">2026年3月27日〜4月6日</span>
+          <span class="value" id="hero-phase-value">2026年3月27日〜4月13日</span>
         </div>
       </div>
       <div class="hero-btn-group">
@@ -535,7 +507,7 @@ footer a:hover{color:var(--blue);}
     <div class="price-grid">
       <div class="price-card featured">
         <div class="price-ribbon">おすすめ</div>
-        <div class="p-phase">PHASE 1 — 2026年3/27〜4/6</div>
+        <div class="p-phase">PHASE 1 — 2026年3/27〜4/13</div>
         <div class="p-name">第1期先行受注</div>
         <div class="price-num">¥1,750</div>
         <div class="price-unit">/個（税別・送料別）· 20個〜</div>
@@ -543,7 +515,7 @@ footer a:hover{color:var(--blue);}
         <div class="price-note">現在受付中。目標1,000個達成時のみ製造。未達成の場合は完全キャンセル（費用発生なし）。</div>
       </div>
       <div class="price-card">
-        <div class="p-phase">PHASE 2 — 2026年4/7〜4/20</div>
+        <div class="p-phase">PHASE 2 — 2026年4/14〜4/20</div>
         <div class="p-name">第2期先行受注</div>
         <div class="price-num" style="color:var(--navy)">¥2,250</div>
         <div class="price-unit">/個（税別・送料別）· 20個〜</div>
@@ -559,7 +531,7 @@ footer a:hover{color:var(--blue);}
         <div class="price-note">先行受注キャンペーン終了後の通常販売価格。在庫確保後の販売となります。</div>
       </div>
     </div>
-    <p style="margin-top:16px;font-size:.78rem;color:var(--text-light);text-align:center;">※ 最小発注単位は20個〜となります。詳細はご担当者にご確認ください。</p>
+    <p style="margin-top:16px;font-size:.78rem;color:var(--text-light);text-align:center;">※ 最小発注単位は20個〜となります。詳細はご担当者にご確認ください。　<a href="./tokusho_gonow_cover.html" target="_blank" style="color:var(--blue-deeper);text-decoration:underline;">特定商取引法に基づく表記</a></p>
   </div>
 </section>
 
@@ -664,7 +636,7 @@ footer a:hover{color:var(--blue);}
         <div class="privacy-wrap">
           <label class="privacy-check">
             <input type="checkbox" id="privacy">
-            <div class="p-text"><a href="#" class="p-link">個人情報の取り扱い</a>について確認し、ゼロスペック株式会社が上記の個人情報を本企画の連絡・管理目的で利用することに同意します。</div>
+            <div class="p-text"><a href="#" class="p-link">個人情報の取り扱い</a>について確認し、ゼロスペック株式会社が上記の個人情報を本企画の連絡・管理目的で利用することに同意します。また、<a href="./tokusho_gonow_cover.html" class="p-link" target="_blank">特定商取引法に基づく表記</a>の内容を確認しました。</div>
           </label>
         </div>
         <div class="error-msg" id="err-msg">⚠️ <span id="err-text">すべての必須項目を入力し、個人情報への同意にチェックしてください。</span></div>
@@ -672,7 +644,8 @@ footer a:hover{color:var(--blue);}
           <button class="submit-btn" id="submit-btn" onclick="trackEvent('cta_click',{button_name:'submit_btn',location:'form'});submitForm()">📩 先行受注を申し込む（無料・キャンセル可）</button>
           <p class="submit-note">
             ※ 1,000個未達成の場合、申込みは自動キャンセルとなります（費用発生なし）<br>
-            ※ 正式な発注書は後日担当よりご送付します
+            ※ 正式な発注書は後日担当よりご送付します<br>
+            ※ <a href="./tokusho_gonow_cover.html" target="_blank" style="color:var(--blue-deeper);text-decoration:underline;">特定商取引法に基づく表記</a>はこちら
           </p>
         </div>
       </div>
@@ -693,17 +666,17 @@ footer a:hover{color:var(--blue);}
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-dot blue">🚀</div>
-        <div class="tl-date">2026年3月27日〜4月6日</div>
+        <div class="tl-date">2026年3月27日〜4月13日</div>
         <div class="tl-title">【CFフェーズ】第1期募集</div>
         <div class="tl-desc">30% OFF（1,750円/個）の特別価格で先行受注を受付。GoNOW利用企業様限定のクローズドオファーです。</div>
         <span class="tl-tag blue">受付中 · 30% OFF</span>
       </div>
       <div class="tl-item">
         <div class="tl-dot blue">🚀</div>
-        <div class="tl-date">2026年4月7日〜4月20日</div>
+        <div class="tl-date">2026年4月14日〜4月20日</div>
         <div class="tl-title">【CFフェーズ】第2期募集</div>
         <div class="tl-desc">10% OFF（2,250円/個）での受付。第1期より価格は上がります。早めのご申込みをおすすめします。</div>
-        <span class="tl-tag navy">4/7〜4/20 · 10% OFF</span>
+        <span class="tl-tag navy">4/14〜4/20 · 10% OFF</span>
       </div>
       <div class="tl-item">
         <div class="tl-dot navy">⚖️</div>
@@ -769,6 +742,7 @@ footer a:hover{color:var(--blue);}
   <div class="nav-logo"><img src="./gonow_logo.png" alt="GoNOW"></div>
   <p>ゼロスペック株式会社<br>
   本先行受注プロジェクトは社内企画です。内容は予告なく変更される場合があります。<br>
+  <a href="./tokusho_gonow_cover.html" target="_blank">特定商取引法に基づく表記</a><br>
   © 2026 ZEROSPEC Inc. All rights reserved.</p>
 </footer>
 
@@ -780,7 +754,7 @@ const GAS_URL = 'YOUR_GAS_WEB_APP_URL_HERE';
 const GOAL    = 1000;
 
 // フェーズ境界（ローカル時刻）
-const PHASE1_END = new Date('2026-04-06T23:59:59'); // 4/6 23:59:59まで第1期
+const PHASE1_END = new Date('2026-04-13T23:59:59'); // 4/13 23:59:59まで第1期
 const PHASE2_END = new Date('2026-04-20T23:59:59'); // 4/20 23:59:59まで第2期
 const CLOSE_AT   = new Date('2026-04-21T00:00:00'); // 4/21 00:00 自動クローズ
 
@@ -824,7 +798,7 @@ const PHASE_CONFIG = {
     heroPriceLabel : '第1期価格（30% OFF）',
     heroPriceHTML  : '¥1,750<small style="font-size:.55em;font-weight:600">/個（税別・送料別）</small>',
     heroPhaseLabel : '第1期受付中',
-    heroPhaseValue : '〜2026年4月6日 23:59',
+    heroPhaseValue : '〜2026年4月13日 23:59',
     formTitle      : '📋 先行受注申込みフォーム（第1期 · 30% OFF）',
     phaseValue     : '第1期（1,750円/個・30%OFF）',
     showForm       : true,
