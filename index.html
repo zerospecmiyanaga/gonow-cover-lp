@@ -588,7 +588,7 @@ footer a:hover{color:var(--blue);}
           </div>
           <div class="form-group">
             <label>申込希望数 <span class="req">必須</span></label>
-            <input type="number" id="qty" min="20" step="20" placeholder="個数を入力（20個単位）" style="height:48px;border:1.5px solid var(--border);border-radius:10px;padding:0 16px;font-size:.93rem;font-family:'Noto Sans JP',sans-serif;color:var(--text);background:var(--bg);transition:all .2s;outline:none;">
+            <input type="number" id="qty" min="20" step="1" placeholder="個数を入力（最低20個〜1個単位）" style="height:48px;border:1.5px solid var(--border);border-radius:10px;padding:0 16px;font-size:.93rem;font-family:'Noto Sans JP',sans-serif;color:var(--text);background:var(--bg);transition:all .2s;outline:none;">
           </div>
           <div class="form-group">
             <label>お申込み期 <span class="req">必須</span></label>
@@ -973,14 +973,6 @@ async function submitForm() {
     errEl.classList.add('show');
     errEl.scrollIntoView({ behavior:'smooth', block:'nearest' });
     trackEvent('form_error', { error_type:'validation_empty' });
-    btn.disabled = false; _submitting = false;
-    return;
-  }
-  if (qtyNum % 20 !== 0) {
-    errText.textContent = '申込希望数は20個単位で入力してください（例：20, 40, 60...）。';
-    errEl.classList.add('show');
-    errEl.scrollIntoView({ behavior:'smooth', block:'nearest' });
-    trackEvent('form_error', { error_type:'validation_qty_unit' });
     btn.disabled = false; _submitting = false;
     return;
   }
