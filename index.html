@@ -1092,7 +1092,7 @@ async function submitForm() {
     return;
   }
   try {
-    await fetch(GAS_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+    fetch(GAS_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body: JSON.stringify(payload) }).catch(()=>{});
     document.getElementById('form-body').style.display = 'none';
     document.getElementById('success-msg').classList.add('show');
     trackEvent('form_complete', { phase, qty: parseInt(qty) });
